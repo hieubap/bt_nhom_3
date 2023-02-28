@@ -16,7 +16,6 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        SignInActivity.emailCurrentUser;
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override

@@ -23,8 +23,6 @@ public class SignInActivity extends AppCompatActivity {
     private EditText edtEmail, edtPassword;
     private Button btnSignIn;
     private FirebaseAuth mAuth;
-    public static String emailCurrentUser;
-    public static String nameCurrentUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -2,7 +2,7 @@
     <string name="app_name">Quanlysinhvien</string>
     <string name="nav_home">Home</string>
     <string name="nav_favorite">Groups</string>
-    <string name="nav_history">How to use</string>
+    <string name="nav_history">Chating</string>
     <string name="nav_account">Account</string>
     <string name="nav_my_profile">My Profile</string>
     <string name="nav_change_password">Change Password</string>

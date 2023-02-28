@@ -1,20 +1,74 @@
 package com.example.quanlysinhvien.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.quanlysinhvien.ChatActivity;
+import com.example.quanlysinhvien.MainActivity;
 import com.example.quanlysinhvien.R;
+import com.example.quanlysinhvien.SignUpActivity;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class HistoryFragment extends Fragment {
+    public DatabaseReference myRef;
+    private DataSnapshot snapshotStudents;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_history, container, false);
+        View view = inflater.inflate(R.layout.fragment_history, container, false);
+
+        DatabaseReference database = FirebaseDatabase.getInstance().getReference("list_user");
+        database.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                snapshotStudents = snapshot;
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        EditText input =   view.findViewById(R.id.mssv_input);
+        Button button = view.findViewById(R.id.submit_btn);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(snapshotStudents.hasChild(input.getText().toString())){
+                    String[] s = snapshotStudents.child(input.getText().toString())
+                            .child("name").getValue().toString().split(" ");
+                    ChatActivity.mssv = input.getText().toString();
+                    ChatActivity.name = s[s.length-1];
+                    Intent intent = new Intent(getActivity(), ChatActivity.class);
+                    startActivity(intent);
+                }else{
+                    Toast.makeText(getContext(), "MSSV không tồn tại", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
+        return view;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
     }
 }
