@@ -23,13 +23,9 @@ import com.google.firebase.database.ValueEventListener;
 
 public class ChatFragment extends Fragment {
     public DatabaseReference myRef;
-    private DataSnapshot snapshotStudents;
+    public static DataSnapshot snapshotStudents;
 
-    @Nullable
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_chat, container, false);
-
+    public static void initStudentData () {
         DatabaseReference database = FirebaseDatabase.getInstance().getReference("list_user");
         database.addValueEventListener(new ValueEventListener() {
             @Override
@@ -42,6 +38,14 @@ public class ChatFragment extends Fragment {
 
             }
         });
+    }
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_chat, container, false);
+
+
+        initStudentData();
 
         EditText input =   view.findViewById(R.id.mssv_input);
         Button button = view.findViewById(R.id.submit_btn);

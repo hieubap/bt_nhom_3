@@ -1,14 +1,26 @@
 package com.example.quanlysinhvien;
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
-public class User {
+
+
+public class User implements Serializable {
     private int id;
     private String name;
     private int vanghoc;
+    private int group;
+
     public User(int id, String name, int vanghoc) {
         this.id = id;
         this.name = name;
         this.vanghoc = vanghoc;
+    }
+
+    public User(int id, String name, int vanghoc, int group) {
+        this.id = id;
+        this.name = name;
+        this.vanghoc = vanghoc;
+        this.group = group;
     }
 
     public User(String name, int vanghoc) {
