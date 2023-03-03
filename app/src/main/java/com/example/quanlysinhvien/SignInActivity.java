@@ -3,12 +3,16 @@ package com.example.quanlysinhvien;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -21,13 +25,15 @@ public class SignInActivity extends AppCompatActivity {
 
     private LinearLayout layoutSignUp;
     private EditText edtEmail, edtPassword;
-    private Button btnSignIn;
+    private ImageView btnSignIn;
     private FirebaseAuth mAuth;
+    private View view;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_in);
+        setContentView(R.layout.activity_login);
         mAuth = FirebaseAuth.getInstance();//Khởi tạo
         layoutSignUp = findViewById(R.id.layout_sign_up);
         edtEmail = findViewById(R.id.edt_emaill);

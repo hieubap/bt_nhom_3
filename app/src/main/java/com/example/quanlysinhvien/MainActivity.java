@@ -12,14 +12,12 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-import com.example.quanlysinhvien.fragment.FavoriteFragment;
-import com.example.quanlysinhvien.fragment.HistoryFragment;
+import com.example.quanlysinhvien.fragment.GroupFragment;
+import com.example.quanlysinhvien.fragment.ChatFragment;
 import com.example.quanlysinhvien.fragment.HomeFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.navigation.NavigationView;
-import android.app.Activity;
-import android.view.Window;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -94,13 +92,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
     private void openGroupsFragment(){
         if(mCurrentFragment != FRAGMENT_FAVORITE){
-            replaceFragment(new FavoriteFragment());
+            replaceFragment(new GroupFragment());
             mCurrentFragment = FRAGMENT_FAVORITE;
         }
     }
     private void openHistoryFragment(){
         if(mCurrentFragment != FRAGMENT_HISTORY){
-            replaceFragment(new HistoryFragment());
+            replaceFragment(new ChatFragment());
             mCurrentFragment = FRAGMENT_HISTORY;
         }
     }

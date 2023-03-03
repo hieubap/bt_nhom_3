@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -22,13 +23,13 @@ public class SignUpActivity extends AppCompatActivity {
 
     //private Dialog progressDialog;
     private EditText edtEmail, edtPassword;
-    private Button btnSignUp;
+    private ImageView btnSignUp;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_up);
+        setContentView(R.layout.activity_signup);
         initUi();
         initListener();
     }

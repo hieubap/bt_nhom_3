@@ -16,9 +16,10 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/app_name"
-        android:textSize="20sp"
+        android:text="Quản lý lớp học"
+        android:textSize="30sp"
+        android:textStyle="bold"
         android:layout_marginTop="20dp"
-        android:textColor="@color/black"/>
+        android:textColor="@color/orange"/>
 
 </LinearLayout>
