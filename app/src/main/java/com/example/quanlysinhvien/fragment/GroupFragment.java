@@ -76,12 +76,8 @@ public class GroupFragment extends Fragment {
 
                         }
 
-                        Bundle b = new Bundle();
-//                        b.putSerializable("bundle_member",()users);
                         intent.putExtra("members",(Serializable) users);
                         startActivity(intent);
-//                        String[] s = ChatFragment.snapshotStudents.child(input.getText().toString())
-//                                .child("name").getValue().toString().split(" ");
 
                     }else{
                         Toast.makeText(getContext(), "MSSV không tồn tại", Toast.LENGTH_SHORT).show();
